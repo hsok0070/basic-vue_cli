@@ -1,7 +1,7 @@
 <template>
     <div>
         <p>header</p>
-        <slot></slot>
+        <slot name='header' :name1='name1'></slot>
         <p>Body</p>
         <slot></slot>
         <p>footer</p>
@@ -12,7 +12,7 @@
 export default {
     data() {
         return {
-            name: 'MinWoo',
+            name1: 'MinWoo',
         }
     },
     methods: {
