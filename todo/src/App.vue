@@ -12,7 +12,8 @@
     <Todo 
     v-for="todo in todos" 
     :key="todo.key"
-    :todo="todo"></Todo>
+    :todo="todo"
+    @toggle-checkbox='toggleCheckbox'></Todo>
   </div>
 </template>
 
@@ -40,6 +41,9 @@ export default {
         checked: false,
         });
         this.todoText = '';
+    },
+    toggleCheckbox({id, checked}) {
+      console.log(id,checked)
     }
   }
 }
