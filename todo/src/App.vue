@@ -13,7 +13,8 @@
     v-for="todo in todos" 
     :key="todo.id"
     :todo="todo"
-    @toggle-checkbox='toggleCheckbox'></Todo>
+    @toggle-checkbox='toggleCheckbox'
+    @click-delete='deleteTodo'></Todo>
   </div>
 </template>
 
@@ -48,6 +49,12 @@ export default {
         return todo.id === id;
       });
       this.todos[index].checked = checked;
+    },
+    deleteTodo(id) {
+      const index = this.todos.findIndex(todo => {
+        return todo.id === id;
+      });
+      this.todos.splice(index, 1);
     }
   }
 }
