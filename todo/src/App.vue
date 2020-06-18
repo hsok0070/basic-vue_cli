@@ -15,6 +15,7 @@
     :todo="todo"
     @toggle-checkbox='toggleCheckbox'
     @click-delete='deleteTodo'></Todo>
+    {{ todos}}
   </div>
 </template>
 
@@ -51,10 +52,11 @@ export default {
       this.todos[index].checked = checked;
     },
     deleteTodo(id) {
-      const index = this.todos.findIndex(todo => {
+      /* const index = this.todos.findIndex(todo => {
         return todo.id === id;
       });
-      this.todos.splice(index, 1);
+      this.todos.splice(index, 1); */
+      this.todos = this.todos.filter(todo => todo.id !== id);
     }
   }
 }
